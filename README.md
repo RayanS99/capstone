@@ -1,1 +1,3 @@
 # capstone
+
+Hello!! This is our capstone project and it kicks ass. You are not ready...
