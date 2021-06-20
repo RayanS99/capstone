@@ -1,6 +1,22 @@
-Hello capstone
-This is the main page we get to when we enter the CampusPass website!
-Here we can see a login button. When logged in, depending on the email we get:
+{% extends "base.html" %}
 
->admin.html
->student.html
+{% block content %}
+<div class="container theme-showcase" role="main" style="margin-top: 75px">
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+        {% if current_user.is_authenticated %}
+        <h1>Hello {{current_user.email}}</h1>
+        {% else%}
+        <h1>Hello world!</h1>
+        {% endif %}
+        <h1>This is capstone time Baby <br>
+            This is the main page we get to when we enter the CampusPass website!
+            Here we can see a login button. When logged in, depending on the email we get:<br>
+            
+            >admin.html<br>
+            >student.html</h1>
+    </div>
+</div>
+{% endblock %}
+
+
