@@ -1,35 +1,160 @@
-{% extends "bootstrap/base.html" %}
+{% block doc -%}
+<!DOCTYPE html>
+<html{% block html_attribs %}lang="en"{% endblock html_attribs %}>
+{%- block html %}
+  <head>
+    {%- block head %}
+    <title>{% block title %}Campus Pass{% endblock title %}</title>
+    {%- block metas %}
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {%- endblock metas %}
+    {%- block styles %}
+    
+    <!-- Favicons -->
+    <link rel="shortcut-icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/app.png') }}">   
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
 
-{% block title %}Flask tutorial{% endblock %}
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css')}}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendor/aos/aos.css')}}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendor/remixicon/remixicon.css')}}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.css')}}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendor/glightbox/css/glightbox.min.css')}}"/>
 
-{% block navbar %}
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="{{ url_for('index') }}">Flask tutorial</a>
+    <!-- Template Main CSS File -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}"/>
+
+    {%- endblock styles %}
+    {%- endblock head %}
+  </head>
+  <body{% block body_attribs %}{% endblock body_attribs %}>
+    {% block body -%}
+
+
+    <!-- Header & Navbar goes here: -->
+    {% block header %}
+    <header id="header" class="header fixed-top">
+        <div class="container-fluid px-5 container-xl d-flex align-items-center justify-content-between">
+            <a href="/" class="logo d-flex align-items-center">
+                <img src="{{ url_for('static', filename='img/logo.svg')}}" height="40" alt="Logo">
+            </a>
+            {% block navbar %}
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+                    <li><a class="nav-link scrollto" href="#about">About</a></li>
+                    <li><a class="nav-link scrollto" href="#services">Services</a></li>
+                    <li><a class="nav-link scrollto" href="#team">Team</a></li>
+                    <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+                    <li><a class="getstarted scrollto" href="{{ url_for('login') }}" data-inline="true" >Login</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav>
+            {%- endblock navbar %}
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li><a href="{{ url_for('index') }}">Home</a></li>
-                <li><a href="{{ url_for('login') }}">Login</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
-{% endblock %}
+    </header>
+    {% endblock %}
 
-{% block content %}
-<div class="container theme-showcase" role="main" style="margin-top: 75px">
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-        <h1>Hello world!</h1>
-    </div>
-</div>
-{% endblock %}
+    <!-- Content goes here: -->
+    {% block content -%}
+    {%- endblock content %}
+   
+    <!-- ======= Footer ======= -->
+    {% block footer -%}
+      <footer id="footer" class="footer">
+
+        <div class="footer-top">
+          <div class="container">
+            <div class="row gy-4">
+              <div class="col-lg-5 col-md-12 footer-info">
+                <a href="index.html" class="logo d-flex align-items-center">
+                  <img src="{{ url_for('static', filename='img/logo.svg')}}" height="40" alt="Logo">
+                </a>
+                <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+                <div class="social-links mt-3">
+                  <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+                  <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+                  <a href="#" class="instagram"><i class="bi bi-instagram bx bxl-instagram"></i></a>
+                  <a href="#" class="linkedin"><i class="bi bi-linkedin bx bxl-linkedin"></i></a>
+                </div>
+              </div>
+    
+              <div class="col-lg-2 col-6 footer-links">
+                <h4>Useful Links</h4>
+                <ul>
+                  <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
+                  <li><i class="bi bi-chevron-right"></i> <a href="#">About us</a></li>
+                  <li><i class="bi bi-chevron-right"></i> <a href="#">Services</a></li>
+                  <li><i class="bi bi-chevron-right"></i> <a href="#">Terms of service</a></li>
+                  <li><i class="bi bi-chevron-right"></i> <a href="#">Privacy policy</a></li>
+                </ul>
+              </div>
+    
+              <div class="col-lg-2 col-6 footer-links">
+                <h4>Our Services</h4>
+                <ul>
+                  <li><i class="bi bi-chevron-right"></i> <a href="#">Security</a></li>
+                  <li><i class="bi bi-chevron-right"></i> <a href="#">Digital IDs</a></li>
+                  <li><i class="bi bi-chevron-right"></i> <a href="#">Data Analytics</a></li>
+                  <li><i class="bi bi-chevron-right"></i> <a href="#">Safety Protocol</a></li>
+                  <li><i class="bi bi-chevron-right"></i> <a href="#">Machine Learning</a></li>
+                </ul>
+              </div>
+    
+              <div class="col-lg-3 col-md-12 footer-contact text-md-start">
+                <h4>Contact Us</h4>
+                <p>
+                  A108 Adam Street <br>
+                  New York, NY 535022<br>
+                  United States <br><br>
+                  <strong>Phone:</strong> +1 5589 55488 55<br>
+                  <strong>Email:</strong> info@campuspass.com<br>
+                </p>
+    
+              </div>
+    
+            </div>
+          </div>
+        </div>
+    
+        <div class="container">
+          <div class="copyright">
+            &copy; Copyright <strong><span>Campus Pass</span></strong>. All Rights Reserved
+          </div>
+        </div>
+      </footer>
+      <!-- End Footer -->
+    
+      <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    
+    {%- endblock footer%}
+
+    {% block scripts %}
+    <script rel="stylesheet" src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.js')}}"></script>
+    <script rel="stylesheet" src="{{ url_for('static', filename='vendor/aos/aos.js')}}"></script>
+    <script rel="stylesheet" src="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.js')}}"></script>
+    <script rel="stylesheet" src="{{ url_for('static', filename='vendor/purecounter/purecounter.js')}}"></script>
+    <script rel="stylesheet" src="{{ url_for('static', filename='vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
+    <script rel="stylesheet" src="{{ url_for('static', filename='vendor/glightbox/js/glightbox.min.js')}}"></script>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+   
+    <!-- Template Main JS File -->
+    <script rel="stylesheet" src="{{ url_for('static', filename='js/main.js')}}"></script>
+
+   
+    {%- endblock scripts %}
+    {%- endblock body %}
+
+  </body>
+{%- endblock html %}
+</html>
+{% endblock doc -%}
+
