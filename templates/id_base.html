@@ -1,0 +1,94 @@
+{% block doc -%}
+<!DOCTYPE html>
+<html{% block html_attribs %}lang="en"{% endblock html_attribs %}>
+{%- block html %}
+  <head>
+    {%- block head %}
+    <title>{% block title %}Campus Pass{% endblock title %}</title>
+    {%- block metas %}
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {%- endblock metas %}
+    {%- block styles %}
+    
+    <!-- Favicons -->
+    <link rel="shortcut-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/app.png') }}">   
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ID/reset.css')}}" type="text/css"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ID/bootstrap-grid.min.css')}}" type="text/css"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ID/animations.css')}}" type="text/css"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ID/perfect-scrollbar.css')}}" type="text/css"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ID/css/owl.carousel.css')}}" type="text/css"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ID/magnific-popup.css')}}" type="text/css"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ID/main.css')}}" type="text/css"/>
+
+    {%- endblock styles %}
+    {%- endblock head %}
+  </head>
+  <body{% block body_attribs %}{% endblock body_attribs %}>
+    {% block body -%}
+        <!-- Animated Background -->
+        <div class="lm-animated-bg" style="background-image: url(img/main_bg.png);"></div>
+        <!-- /Animated Background -->
+    
+        <!-- Loading animation -->
+        <div class="preloader">
+          <div class="preloader-animation">
+            <div class="preloader-spinner">
+            </div>
+          </div>
+        </div>
+        <!-- /Loading animation -->
+
+
+
+    {% block content -%}
+    {%- endblock content %}
+       
+
+
+    {% block scripts %}
+    <script rel="stylesheet" src="{{ url_for('static', filename='js/ID/jquery.min.js')}}"></script>
+    <script rel="stylesheet" src="{{ url_for('static', filename='js/ID/modernizr.custom.js')}}"></script>
+    <script rel="stylesheet" src="{{ url_for('static', filename='js/ID/animating.js')}}"></script>
+
+    <script rel="stylesheet" src="{{ url_for('static', filename='js/ID/imagesloaded.pkgd.min.js')}}"></script>
+    <script rel="stylesheet" src="{{ url_for('static', filename='js/ID/isotope.pkgd.min.js')}}"></script>
+    <script rel="stylesheet" src="https://www.google.com/recaptcha/api.js"></script>
+
+    <script rel="stylesheet" src="{{ url_for('static', filename='js/ID/perfect-scrollbar.min.js')}}"></script>
+    <script rel="stylesheet" src="{{ url_for('static', filename='js/ID/jquery.shuffle.min.js')}}"></script>
+    <script rel="stylesheet" src="{{ url_for('static', filename='js/ID/masonry.pkgd.min.js')}}"></script>
+    <script rel="stylesheet" src="{{ url_for('static', filename='js/ID/owl.carousel.min.js')}}"></script>
+    <script rel="stylesheet" src="{{ url_for('static', filename='js/ID/jquery.magnific-popup.min.js')}}"></script>
+   
+    <script rel="stylesheet" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrDf32aQTCVENBhFJbMBKOUTiUAABtC2o"></script>
+    <script rel="stylesheet" src="{{ url_for('static', filename='js/ID/jquery.googlemap.js')}}"></script>
+    <script rel="stylesheet" src="{{ url_for('static', filename='js/ID/validator.js')}}"></script>
+
+    <!-- Template Main JS File -->
+    <script rel="stylesheet" src="{{ url_for('static', filename='js/ID/main.js')}}"></script>
+
+   
+    {%- endblock scripts %}
+    {%- endblock body %}
+
+  </body>
+{%- endblock html %}
+</html>
+{% endblock doc -%}
+
+
+
+
+Student IDs babyyyyy (optimise for phone and desktop!)
+
+Menu:
+
+-Safety (this is the tracking button)
+-Emergency
+-Wallet???

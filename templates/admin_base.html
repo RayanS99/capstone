@@ -11,9 +11,8 @@
     {%- block styles %}
     
     <!-- Favicons -->
-    <link rel="shortcut-icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+    <link rel="shortcut-icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/app.png') }}">   
-    
     <!-- Fonts -->
     <link href="{{ url_for('static', filename='vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
@@ -124,11 +123,11 @@
                     <span>Database</span></a>
             </li>
 
-            <!-- Nav Item - Settings -->
+            <!-- Nav Item - charts -->
             <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('settings') }}">
-                    <i class="fas fa-cog"></i>
-                    <span>Settings</span></a>
+                <a class="nav-link" href="{{ url_for('charts') }}">
+                    <i class="fas fa-chart-area"></i>
+                    <span>Charts</span></a>
             </li>
 
             <!-- Divider -->
@@ -342,25 +341,11 @@
                 </nav>
                 <!-- End of Topbar -->
 
-    <!-- Content goes here: -->
-    <div class="block-content">
-    {% block content -%}
-    {%- endblock content %}
-    </div>
-
-    <!-- ======= Footer ======= -->
-    <!-- {% block footer -%}
-        <footer class="sticky-footer ">
-            <div class="container my-auto">
-                <div class="copyright text-left my-auto">
-                    <span>Copyright &copy; Campus Pass 2021</span>
-                </div>
+            <!-- Content goes here: -->
+            <div class="block-content">
+            {% block content -%}
+            {%- endblock content %}
             </div>
-        </footer>
-    {%- endblock footer %} -->
-    <!-- End of Footer -->
-    
-        </div>
             <!-- End of Content Wrapper -->
     
     </div>

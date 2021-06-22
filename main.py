@@ -1,8 +1,9 @@
-from flask import Flask, render_template, redirect, url_for
+import os
+from flask import Flask, render_template, redirect, url_for, send_from_directory
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField
 from wtforms.validators import Length, Email
-
+from flask import send_from_directory
 from flask_sqlalchemy import SQLAlchemy
 from flask_admin import Admin, AdminIndexView
 from flask_admin.contrib.sqla import ModelView
@@ -59,6 +60,10 @@ class RegisterForm(FlaskForm):
 admin = Admin(app, index_view=MyAdminIndexView())
 admin.add_view(MyModelView(User, db.session))
 
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'),
+                               'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 @app.route("/")
 def index():
@@ -78,7 +83,7 @@ def register():
 
         return redirect(url_for("index"))
 
-    return render_template("register.html", form=form)
+    return render_template("index_register.html", form=form)
 
 
 #@app.route("/login")
@@ -99,7 +104,7 @@ def login():
 
             return redirect(url_for("index"))
 
-    return render_template("login.html", form=form)
+    return render_template("index_login.html", form=form)
 
 @app.route("/logout")
 def logout():
@@ -110,9 +115,9 @@ def logout():
 def ad():
     return render_template("admin.html")
 
-@app.route("/student")
-def student():
-    return render_template("student.html")
+@app.route("/id")
+def id():
+    return render_template("id.html")
 
 @app.route("/database")
 def database():
@@ -142,9 +147,9 @@ def safety():
 def wallet():
     return render_template("admin_wallet.html")
 
-@app.route("/settings")
-def settings():
-    return render_template("admin_settings.html")
+@app.route("/charts")
+def charts():
+    return render_template("admin_charts.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
