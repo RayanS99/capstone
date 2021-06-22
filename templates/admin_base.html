@@ -56,21 +56,21 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Interface
+                Features
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Components</span>
+                    <i class="fas fa-id-card"></i>
+                    <span>IDs</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6> 
-                        <a class="collapse-item" href="{{ url_for('ad') }}">Buttons</a>
-                        <a class="collapse-item" href="{{ url_for('ad') }}">Cards</a>
+                        <h6 class="collapse-header">IDs:</h6> 
+                        <a class="collapse-item" href="{{ url_for('ad') }}">Room Access</a>
+                        <a class="collapse-item" href="{{ url_for('ad') }}">Wallet</a>
                     </div>
                 </div>
             </li>
@@ -79,17 +79,32 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Utilities</span>
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <span>Incidents</span>
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="{{ url_for('ad') }}">Colors</a>
-                        <a class="collapse-item" href="{{ url_for('ad') }}">Borders</a>
-                        <a class="collapse-item" href="{{ url_for('ad') }}">Animations</a>
-                        <a class="collapse-item" href="{{ url_for('ad') }}">Other</a>
+                        <h6 class="collapse-header">Incidents:</h6>
+                        <a class="collapse-item" href="{{ url_for('ad') }}">Safety</a>
+                        <a class="collapse-item" href="{{ url_for('ad') }}">Emergency</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Hotspots Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseHotspots"
+                    aria-expanded="true" aria-controls="collapseHotspots">
+                    <i class="fas fa-fire"></i>
+                    <span>Hotspots</span>
+                </a>
+                <div id="collapseHotspots" class="collapse" aria-labelledby="headingHotspots"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Hotspots:</h6>
+                        <a class="collapse-item" href="{{ url_for('ad') }}">CP ML</a>
+                        <a class="collapse-item" href="{{ url_for('ad') }}">CP agent map</a>
                     </div>
                 </div>
             </li>
@@ -99,42 +114,21 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Addons
+                Extras
             </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Pages</span>
-                </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="{{ url_for('login') }}">Login</a>
-                        <a class="collapse-item" href="{{ url_for('register') }}">Register</a>
-                        <a class="collapse-item" href="{{ url_for('ad') }}">Forgot Password</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="{{ url_for('ad') }}">404 Page</a>
-                        <a class="collapse-item" href="{{ url_for('ad') }}">Blank Page</a>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Nav Item - Charts -->
+            
+            <!-- Nav Item - Database -->
             <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('ad') }}">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
+                    <i class="fas fa-database"></i>
+                    <span>Database</span></a>
             </li>
 
-            <!-- Nav Item - Tables -->
+            <!-- Nav Item - Settings -->
             <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('ad') }}">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span></a>
             </li>
 
             <!-- Divider -->
@@ -148,12 +142,12 @@
             <!-- Sidebar Message -->
             <div class="sidebar-card d-none d-lg-flex">
                 <img class="sidebar-card-illustration mb-2" src="{{ url_for('static', filename='img/symbol.svg')}}" alt="undraw">
-                <p class="text-center mb-2"><strong>Campus Pass</strong></p> <p class="text-center mb-2">We know how to keep you safe!</p>
+                <p class="text-center mb-2"><strong>Campus Pass</strong></p> 
+                <p class="text-center mb-2">We know how to keep  </p>
+                <p class="text-center mb-2">you safe!</p>
                 <p class="text-center mb-2">Copyright &copy; 2021</p>
-                <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Need Help?</a>
+                <a class="btn btn-success btn-sm" href="adrianarosedh.github.io/campuspass/">Need Help?</a>
             </div>
-
-            
 
         </ul>
         <!-- End of Sidebar -->
