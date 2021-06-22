@@ -382,12 +382,15 @@ h6, .h6 {
 .block-content{
   display: flex;
   margin-left: 15rem;
-  margin-top: 5rem;
   margin-bottom: 5rem;
   position: fixed;
   overflow-y:scroll;
   height:100%;
-  padding-bottom: 5rem;
+
+}
+
+#content {
+  margin-top:6rem;
 }
 
 @media (max-width: 767px) {
@@ -4133,6 +4136,7 @@ input[type="button"].btn-block {
   padding: 0 1rem;
   background-color: var(--white-color);
   z-index: var(--z-fixed);
+  z-index: 1001;
   width: 100%;
   transition: .5s
 }
@@ -10140,6 +10144,7 @@ a:focus {
   transform-origin: top right;
   right: .25rem;
   margin-top: -.25rem;
+  z-index: 1001;
 }
 
 .sidebar .nav-item .nav-link .img-profile,
@@ -10245,10 +10250,11 @@ a:focus {
   height: 0.75rem;
   width: 0.75rem;
   border-radius: 100%;
-  position: absolute;
+  position: relative;
   bottom: 0;
   right: 0;
   border: 0.125rem solid #fff;
+  z-index:10;
 }
 
 .topbar .dropdown-list .dropdown-item .text-truncate {
