@@ -114,5 +114,37 @@ def ad():
 def student():
     return render_template("student.html")
 
+@app.route("/database")
+def database():
+    return render_template("admin_database.html")
+
+@app.route("/emergency")
+def emergency():
+    return render_template("admin_emergency.html")
+
+@app.route("/map_agent")
+def map_agent():
+    return render_template("admin_mapAgent.html")
+
+@app.route("/ml")
+def ml():
+    return render_template("admin_ML.html")
+
+@app.route("/room_access")
+def room_access():
+    return render_template("admin_roomAccess.html")
+
+@app.route("/safety")
+def safety():
+    return render_template("admin_safety.html")
+
+@app.route("/wallet")
+def wallet():
+    return render_template("admin_wallet.html")
+
+@app.route("/settings")
+def settings():
+    return render_template("admin_settings.html")
+
 if __name__ == "__main__":
     app.run(debug=True)
