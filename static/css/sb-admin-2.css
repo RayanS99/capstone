@@ -317,14 +317,6 @@ progress {
   height: auto;
 }
 
-[type="search"] {
-  outline-offset: -2px;
-  -webkit-appearance: none;
-}
-
-[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none;
-}
 
 ::-webkit-file-upload-button {
   font: inherit;
@@ -381,11 +373,12 @@ h6, .h6 {
 
 .block-content{
   display: flex;
-  margin-left: 15rem;
-  margin-bottom: 5rem;
-  position: fixed;
+  margin-left: 14rem;
+  margin-bottom: 2rem;
+  position: relative;
   overflow-y:scroll;
   height:100%;
+  z-index: 1; 
 
 }
 
@@ -395,16 +388,14 @@ h6, .h6 {
 
 @media (max-width: 767px) {
   .block-content{
-    margin-left: .25rem;
-    width: 100%;
+    margin-left: 0;
   }
 }
-@media (max-width: 987px) {
+/* @media (max-width: 987px) {
   .block-content{
-    margin-left: .25rem;
-    width: 100%;
+    margin-left: 0;
   }  
-}
+} */
 .lead {
   font-size: 1.25rem;
   font-weight: 300;
@@ -4135,7 +4126,6 @@ input[type="button"].btn-block {
   justify-content: space-between;
   padding: 0 1rem;
   background-color: var(--white-color);
-  z-index: var(--z-fixed);
   z-index: 1001;
   width: 100%;
   transition: .5s
@@ -10139,7 +10129,7 @@ a:focus {
 
 .sidebar .nav-item .nav-link .badge-counter,
 .topbar .nav-item .nav-link .badge-counter {
-  position: absolute;
+  position: relative;
   transform: scale(0.7);
   transform-origin: top right;
   right: .25rem;
@@ -10170,14 +10160,6 @@ a:focus {
   background-color: #dddfeb;
 }
 
-.topbar .navbar-search {
-  width: 25rem;
-}
-
-.topbar .navbar-search input {
-  font-size: 0.85rem;
-  height: auto;
-}
 
 .topbar .topbar-divider {
   width: 0;
@@ -10307,10 +10289,19 @@ a:focus {
 }
 
 .sidebar {
-  width: 100%;
-  min-height: 100vh;
+  height: 100%;
   position: fixed;
+  top: 0;
+  left: 0;
+  padding-top: 5rem;
+  z-index: 5; 
 }
+
+.sidebar div {
+  padding: 8px;
+  font-size: 24px;
+  display: block;
+  }
 
 .sidebar .nav-item {
   position: relative;
