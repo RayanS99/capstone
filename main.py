@@ -9,22 +9,38 @@ from flask_admin import Admin, AdminIndexView
 from flask_admin.contrib.sqla import ModelView
 from flask_login import UserMixin, LoginManager, current_user, login_user, logout_user
 from flask_migrate import Migrate, upgrade
-
 from werkzeug.security import generate_password_hash, check_password_hash
-
 from flask_bootstrap import Bootstrap
 
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.db'
+#app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:campuspass@/User?unix_socket=/cloudsql/campuspass:europe-west1:campuspassdb"
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.db'
 app.config['SECRET_KEY'] = 'campuspass'
-#app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:rayantip@/User?unix_socket=/cloudsql/tip-rayan:europe-west1:tip-rayan-db"
-
 Bootstrap(app)
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 login = LoginManager(app)
 login.init_app(app)
+
+USER = 'root'
+PASSWORD = 'campuspassdb'
+DATABASE = 'campuspassdb'
+# connection_name is of the format `project:region:your-cloudsql-instance`
+CONNECTION_NAME = 'campuspass:europe-west1:campuspassdb' 
+
+LIVE_SQLALCHEMY_DATABASE_URI = (
+    'mysql+pymysql://{user}:{password}@localhost/{database}'
+    '?unix_socket=/cloudsql/{connection_name}').format(
+        user=USER, password=PASSWORD,
+        database=DATABASE, connection_name=CONNECTION_NAME)
+
+LOCAL_SQLALCHEMY_DATABASE_URI = 'sqlite:///db.db'
+
+if os.environ.get ('GAE_INSTANCE'):
+    app.config['SQLALCHEMY_DATABASE_URI'] = LIVE_SQLALCHEMY_DATABASE_URI
+else:
+    app.config['SQLALCHEMY_DATABASE_URI'] = LOCAL_SQLALCHEMY_DATABASE_URI
 
 @login.user_loader
 def load_user(user_id):
