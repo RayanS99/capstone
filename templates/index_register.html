@@ -17,6 +17,10 @@
         <form action="{{ url_for('register') }}" method="POST">
             {{ form.hidden_tag() }}
             {{ wtf.form_field(form.email) }}
+            {{ wtf.form_field(form.name) }}
+            {{ wtf.form_field(form.surname) }}
+            {{ wtf.form_field(form.major) }}
+            {{ wtf.form_field(form.intake) }}
             {{ wtf.form_field(form.password) }}
             {{ wtf.form_field(form.repeat_password) }}
             <button type="submit" class="btn btn-primary">Register</button>

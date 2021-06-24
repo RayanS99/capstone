@@ -11,8 +11,15 @@
               <img src="{{ url_for('static', filename='img/ID/main_photo.jpg')}}" alt="Alex Smith">
             </div>
             <div class="header-titles">
-              <h2>Alex Smith</h2>
+              {% if current_user.is_authenticated %}
+              <h2> {{current_user.name}} {{current_user.surname}}</h2>
+              {% else %}
+              <h2 style="color: #ff644c">Kindly login to access your ID</h2>
+              {% endif %}
+              {% if current_user.is_authenticated %}
               <h4>UCLA Student</h4>
+              {% endif %}
+
             </div>
           </div>
 
@@ -93,55 +100,48 @@
 
                 <!-- Personal Information -->
                 <div class="row">
+                  {% if current_user.is_authenticated %}
+
                   <div class="col-xs-12 col-sm-3">
                     <img class="qrcode" src="{{ url_for('static', filename='img/ID/qrcode.gif')}}" alt="undraw">
                   </div>
+                  {% endif %}
 
                   <div class="col-xs-12 col-sm-7">
                     <div class="info-list">
                       <ul>
                         <li>
-                          <span class="title">Age</span>
-                          <span class="value">20</span>
-                        </li>
-
-                        <li>
-                          <span class="title">Residence</span>
-                          <span class="value">USA</span>
-                        </li>
-
-                        <li>
-                          <span class="title">Address</span>
-                          <span class="value">88 Some Street, Los Angeles</span>
-                        </li>
-
-                        <li>
+                          {% if current_user.is_authenticated %}
                           <span class="title">e-mail</span>
-                          <span class="value">alex@student.ucla.edu</span>
+                          <span class="value">{{current_user.email}}</span>
                         </li>
-
                         <li>
-                          <span class="title">Phone</span>
-                          <span class="value">+1 123 456 789</span>
+                          <span class="title">Major</span>
+                          <span class="value">{{current_user.major}}</span>
+                        </li>
+                        
+                        <li>
+                          <span class="title">Intake</span>
+                          <span class="value">{{current_user.intake}}</span>
                         </li>
                       </ul>
                     </div>
                   </div>
                 </div>
                 <!-- End of Personal Information -->
-
+                
                 <div class="white-space-30"></div>
-
+                
                 <!-- Fun Facts -->
                 <div class="row">
                   <div class="col-xs-12 col-sm-12">
-
+                    
                     <div class="block-title">
                       <h3>Fun <span>Facts</span></h3>
                     </div>
                   </div>
                 </div>
-
+                
                 <div class="row">
                   <div class="col-xs-12 col-sm-4">
                     <div class="fun-fact gray-default">
@@ -151,7 +151,7 @@
                       <span class="fun-fact-block-text"></span>
                     </div>
                   </div>
-
+                  
                   <div class="col-xs-12 col-sm-4">
                     <div class="fun-fact gray-default">
                       <i class="lnr lnr-clock"></i>
@@ -160,7 +160,7 @@
                       <span class="fun-fact-block-text"></span>
                     </div>
                   </div>
-
+                  
                   <div class="col-xs-12 col-sm-4 ">
                     <div class="fun-fact gray-default">
                       <i class="lnr lnr-star"></i>
@@ -171,7 +171,8 @@
                   </div>
                 </div>
                 <!-- End of Fun Facts -->
-
+                {% endif %}
+                
               </div>
             </section>
             <!-- End of About Me Subpage -->

@@ -8,6 +8,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_admin import Admin, AdminIndexView
 from flask_admin.contrib.sqla import ModelView
 from flask_login import UserMixin, LoginManager, current_user, login_user, logout_user
+from flask_migrate import Migrate, upgrade
 
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -17,11 +18,13 @@ from flask_bootstrap import Bootstrap
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.db'
 app.config['SECRET_KEY'] = 'campuspass'
+#app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:rayantip@/User?unix_socket=/cloudsql/tip-rayan:europe-west1:tip-rayan-db"
+
 Bootstrap(app)
-
-
 db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 login = LoginManager(app)
+login.init_app(app)
 
 @login.user_loader
 def load_user(user_id):
@@ -56,6 +59,10 @@ class RegisterForm(FlaskForm):
     email = StringField("email", validators=[Email()])
     password = PasswordField("password", validators=[Length(min=5)])
     repeat_password = PasswordField("repated_password", validators=[Length(min=5)])
+    name = StringField("name", validators=[Length(min=1)])
+    surname = StringField("surname", validators=[Length(min=1)])
+    major = StringField("major", validators=[Length(min=1)])
+    intake = StringField("intake", validators=[Length(min=1)])
 
 admin = Admin(app, index_view=MyAdminIndexView())
 admin.add_view(MyModelView(User, db.session))
@@ -75,7 +82,8 @@ def register():
 
     if form.validate_on_submit() and form.password.data == form.repeat_password.data:
         user = User(
-            email=form.email.data, password=generate_password_hash(form.password.data)
+            email=form.email.data, password=generate_password_hash(form.password.data),
+            name=form.name.data, surname=form.surname.data, major=form.major.data, intake=form.intake.data
         )
 
         db.session.add(user)
@@ -110,6 +118,13 @@ def login():
 def logout():
     logout_user()
     return 'You are out mothafucka'
+
+@app.route('/database/dbupgrade')    ##Consider replacing; not very secure
+def dbupgrade():
+
+    migrate = Migrate(app, db)
+    upgrade(directory=migrate.directory)
+    return 'migrated'
 
 @app.route("/ad")
 def ad():
