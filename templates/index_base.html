@@ -47,14 +47,15 @@
                 <ul>
                   {% if request.path == url_for('index') %}
                   <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-                  <li><a class="nav-link scrollto" href="#about">About</a></li>
-                  <li><a class="nav-link scrollto" href="#services">Services</a></li>
-                  <li><a class="nav-link scrollto" href="#team">Team</a></li>
                   <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
                   <li><a class="getstarted scrollto" href="{{ url_for('login') }}" data-inline="true" >Login</a></li>
-                  {% else %}
+                  <li><a class="getstarted scrollto" href="{{ url_for('register') }}" data-inline="true" >Register</a></li>
+                  {% elif request.path == url_for('login') %}
                   <li><a class="nav-link scrollto active" href="{{ url_for('index') }}">Home</a></li>
                   <li><a class="getstarted scrollto" href="{{ url_for('register') }}" data-inline="true" >Register</a></li>
+                  {% else %}
+                  <li><a class="nav-link scrollto active" href="{{ url_for('index') }}">Home</a></li>
+                  <li><a class="getstarted scrollto" href="{{ url_for('login') }}" data-inline="true" >Login</a></li>
                   {% endif %}
 
                 </ul>

@@ -178,9 +178,5 @@ def safety():
 def wallet():
     return render_template("admin_wallet.html")
 
-@app.route("/charts")
-def charts():
-    return render_template("admin_charts.html")
-
 if __name__ == "__main__":
     app.run(debug=True)
