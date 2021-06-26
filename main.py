@@ -13,7 +13,6 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_bootstrap import Bootstrap
 
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.db'
-#app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:campuspass@/User?unix_socket=/cloudsql/campuspass:europe-west1:campuspassdb"
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'campuspass'
@@ -23,24 +22,25 @@ migrate = Migrate(app, db)
 login = LoginManager(app)
 login.init_app(app)
 
-USER = 'root'
-PASSWORD = 'campuspassdb'
-DATABASE = 'campuspassdb2'
-# connection_name is of the format `project:region:your-cloudsql-instance`
-CONNECTION_NAME = 'campuspass:europe-west1:campuspassdb2' 
-
-LIVE_SQLALCHEMY_DATABASE_URI = (
-    'mysql+pymysql://{user}:{password}@localhost/{database}'
-    '?unix_socket=/cloudsql/{connection_name}').format(
-        user=USER, password=PASSWORD,
-        database=DATABASE, connection_name=CONNECTION_NAME)
-
-LOCAL_SQLALCHEMY_DATABASE_URI = 'sqlite:///db.db'
-
-if os.environ.get ('GAE_INSTANCE'):
-    app.config['SQLALCHEMY_DATABASE_URI'] = LIVE_SQLALCHEMY_DATABASE_URI
-else:
-    app.config['SQLALCHEMY_DATABASE_URI'] = LOCAL_SQLALCHEMY_DATABASE_URI
+app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:campuspassdb@/User?unix_socket=/cloudsql/campuspass:europe-west1:campuspassdb2"
+#USER = 'root'
+#PASSWORD = 'campuspassdb'
+#DATABASE = 'campuspassdb2'
+## connection_name is of the format `project:region:your-cloudsql-instance`
+#CONNECTION_NAME = 'campuspass:europe-west1:campuspassdb2' 
+#
+#LIVE_SQLALCHEMY_DATABASE_URI = (
+#    'mysql+pymysql://{user}:{password}@localhost/{database}'
+#    '?unix_socket=/cloudsql/{connection_name}').format(
+#        user=USER, password=PASSWORD,
+#        database=DATABASE, connection_name=CONNECTION_NAME)
+#
+#LOCAL_SQLALCHEMY_DATABASE_URI = 'sqlite:///db.db'
+#
+#if os.environ.get ('GAE_INSTANCE'):
+#    app.config['SQLALCHEMY_DATABASE_URI'] = LIVE_SQLALCHEMY_DATABASE_URI
+#else:
+#    app.config['SQLALCHEMY_DATABASE_URI'] = LOCAL_SQLALCHEMY_DATABASE_URI
 
 @login.user_loader
 def load_user(user_id):
