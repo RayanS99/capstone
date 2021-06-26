@@ -130,6 +130,7 @@ def login():
 
     return render_template("index_login.html", form=form)
 
+# Fix logout
 @app.route("/logout")
 def logout():
     logout_user()
