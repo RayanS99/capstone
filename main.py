@@ -22,7 +22,7 @@ migrate = Migrate(app, db)
 login = LoginManager(app)
 login.init_app(app)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:campuspassdb@/User?unix_socket=/cloudsql/campuspass:europe-west1:campuspassdb2"
+app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:campuspassdb@/User?unix_socket=/cloudsql/campuspass:europe-west1:campuspassdb2/campuspass"
 #USER = 'root'
 #PASSWORD = 'campuspassdb'
 #DATABASE = 'campuspassdb2'
