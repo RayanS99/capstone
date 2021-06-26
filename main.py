@@ -25,7 +25,7 @@ login.init_app(app)
 
 USER = 'root'
 PASSWORD = 'campuspassdb'
-DATABASE = 'campuspassdb1'
+DATABASE = 'campuspassdb2'
 # connection_name is of the format `project:region:your-cloudsql-instance`
 CONNECTION_NAME = 'campuspass:europe-west1:campuspassdb1' 
 
