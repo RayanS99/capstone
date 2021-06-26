@@ -27,7 +27,7 @@ USER = 'root'
 PASSWORD = 'campuspassdb'
 DATABASE = 'campuspassdb2'
 # connection_name is of the format `project:region:your-cloudsql-instance`
-CONNECTION_NAME = 'campuspass:europe-west1:campuspassdb1' 
+CONNECTION_NAME = 'campuspass:europe-west1:campuspassdb2' 
 
 LIVE_SQLALCHEMY_DATABASE_URI = (
     'mysql+pymysql://{user}:{password}@localhost/{database}'
