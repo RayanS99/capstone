@@ -1424,9 +1424,22 @@ textarea.form-control, textarea.form-control:focus {
   border-bottom-left-radius: 6px;
 }
 
-.certi-logo img {
-  display: block;
-  max-width: 100%;
+.certi-logo i{
+  position: block;
+  font-size: 50px;
+  font-weight: bold;
+  color: #FF644C;
+  margin-bottom: 6px;
+  width: 33px;
+  height: 33px;
+}
+
+.green i{
+  color: green;
+}
+
+.red i{
+  color: red;
 }
 
 .certi-content {
