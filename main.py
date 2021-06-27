@@ -21,8 +21,10 @@ migrate = Migrate(app, db)
 login = LoginManager(app)
 login.init_app(app)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:cppass@/User?unix_socket=/cloudsql/campuspass:europe-west1:cpdb"
+#app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:cppass@/User?unix_socket=/cloudsql/campuspass:europe-west1:cpdb"
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///sqlite.db'
+
 #app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:rayantip@/User?unix_socket=/cloudsql/tip-rayan:europe-west1:tip-rayan-db"
 
 #USER = 'root'
@@ -52,10 +54,10 @@ class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(128), nullable=False)
     password = db.Column(db.String(128), nullable=False)
-    name = db.Column(db.String(20))
-    surname = db.Column(db.String(30))
-    major = db.Column(db.String(10))
-    intake = db.Column(db.Integer)
+    name = db.Column(db.String(20), nullable=True)
+    surname = db.Column(db.String(30), nullable=True)
+    major = db.Column(db.String(10), nullable=True)
+    intake = db.Column(db.Integer, nullable=True)
 
 class LoginForm(FlaskForm):
     email = StringField("email", validators=[Email()])
