@@ -21,9 +21,8 @@ migrate = Migrate(app, db)
 login = LoginManager(app)
 login.init_app(app)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:cppass@/User?unix_socket=/cloudsql/campuspass:europe-west1:cpdb"
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.db'
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///sqlite.db'
+#app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:cppass@/User?unix_socket=/cloudsql/campuspass:europe-west1:cpdb"
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///sqlite.db'
 
 #app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:rayantip@/User?unix_socket=/cloudsql/tip-rayan:europe-west1:tip-rayan-db"
 
@@ -130,7 +129,7 @@ def login():
         if check_password_hash(user.password, form.password.data):
             login_user(user)
 
-            return redirect(url_for("index"))
+            return redirect(url_for("id"))
 
     return render_template("index_login.html", form=form)
 
