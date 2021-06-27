@@ -21,10 +21,8 @@ migrate = Migrate(app, db)
 login = LoginManager(app)
 login.init_app(app)
 
-#app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:cppass@/User?unix_socket=/cloudsql/campuspass:europe-west1:cpdb"
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///sqlite.db'
-
-#app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:rayantip@/User?unix_socket=/cloudsql/tip-rayan:europe-west1:tip-rayan-db"
+app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:cppass@/User?unix_socket=/cloudsql/campuspass:europe-west1:cpdb"
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///sqlite.db'
 
 #USER = 'root'
 #PASSWORD = 'campuspassdb'
@@ -137,7 +135,7 @@ def login():
 @app.route("/logout")
 def logout():
     logout_user()
-    return 'You are out mothafucka'
+    return redirect(url_for("index"))
 
 @app.route('/database/dbupgrade')    ##Consider replacing; not very secure
 def dbupgrade():
