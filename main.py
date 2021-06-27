@@ -12,7 +12,6 @@ from flask_migrate import Migrate, upgrade
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_bootstrap import Bootstrap
 
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.db'
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'campuspass'
@@ -22,7 +21,10 @@ migrate = Migrate(app, db)
 login = LoginManager(app)
 login.init_app(app)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:campuspassdb@/User?unix_socket=/cloudsql/campuspass:europe-west1:campuspassdb2/User"
+app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:cppass@/User?unix_socket=/cloudsql/campuspass:europe-west1:cpdb"
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.db'
+#app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:rayantip@/User?unix_socket=/cloudsql/tip-rayan:europe-west1:tip-rayan-db"
+
 #USER = 'root'
 #PASSWORD = 'campuspassdb'
 #DATABASE = 'campuspassdb2'
